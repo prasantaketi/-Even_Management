@@ -1,0 +1,251 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+body {
+	overflow: scroll;
+	background-color: rgb(255, 255, 255);
+}
+
+#img {
+	background-image: url(../images/header.jpg);
+	height: 300px;
+	width: 100%;
+	left: 0;
+	z-index: 0;
+	border: 0;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#navigationBar {
+	overflow: hidden;
+	height: 50px;
+	background-color: black;
+	margin: 0 auto;
+	opacity: 0.9;
+	filter: grayscale(30%);
+	padding-left: 7%;
+}
+
+.sticky {
+	border-radius: 70px;
+	width: 70%;
+	margin: 0 auto;
+	position: fixed;
+	left: 15%;
+}
+
+.sticky+.content {
+	padding-top: 60px;
+}
+
+#navigationBar a {
+	height: 50px;
+	opacity: 1;
+	overflow: hidden;
+	float: left;
+	display: block;
+	text-decoration: none;
+	font-size: 20px;
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	color: #d6d6d6;
+	margin-top: 3px;
+	margin-right: 15px;
+	margin-left: 15px;
+}
+
+nav:hover {
+	color: white;
+}
+
+a:hover {
+	border-bottom: 5px solid rgb(250, 68, 68);
+	border-radius: 5px;
+	color: white;
+	font-size: 29px;
+}
+
+#navigationBar:hover {
+
+	opacity: 3;
+	color: white;
+
+}
+
+#main {
+	width: 100%;
+	background-color: rgb(66, 66, 66);
+}
+
+#sides {
+	float: left;
+	width: 20%;
+	visibility: hidden;
+
+}
+
+#middle {
+	float: left;
+	width: 60%;
+}
+
+section {
+	height: auto;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+}
+
+#bookingDisplay {
+	
+	padding-top: 50px;
+}
+
+table {
+	margin: 0 auto;
+}
+
+th {
+	font-size: 20px;
+	font-family: serif;
+	text-align: center;
+	padding-bottom: 10px;
+	padding-left: 15px;
+	padding: 10px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	border-top: 3px solid black;
+	border-bottom: 3px solid black;
+}
+
+#bookingRow td {
+	background-color: #000000;
+	top: 40px;
+	font-size: 20px;
+	font-family: serif;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: wheat;
+	border-top: 5px solid white;
+	border-bottom: 5px solid white;
+}
+
+tr {
+	padding: 5px;
+}
+
+#start {
+	border-top-left-radius: 50px;
+	border-bottom-left-radius: 50px;
+}
+
+#end {
+	border-top-right-radius: 50px;
+	border-bottom-right-radius: 50px;
+}
+
+#startTh {
+	border-left: 3px solid black;
+	border-top-left-radius: 50px;
+	border-bottom-left-radius: 50px;
+}
+
+#endTh {
+	border-right: 3px solid black;
+	border-top-right-radius: 50px;
+	border-bottom-right-radius: 50px;
+}
+
+#feedHeader {
+	font-size: 21px;
+	padding-bottom: 20px;
+	font-family: fantasy;
+}
+
+#feedbackAlign {
+	padding-top: 50%;
+	float: left;
+	margin: 0 auto;
+}
+
+#comment {
+	width: 500px;
+	height: 150px;
+	overflow: hidden;
+	background-color: rgb(248, 248, 248);
+	border: 3px double rgb(0, 0, 0);
+	border-radius: 30px;
+	padding-top: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
+	font-size: 20px;
+}
+
+#post {
+	width: 150px;
+	height: 50px;
+	background-color: rgb(0, 0, 0);
+	color: wheat;
+	font-size: 25px;
+	border: 3px double whitesmoke;
+	border-radius: 40px;
+}
+
+#post:hover {
+	color: rgb(252, 206, 121);
+	font-size: 30px;
+	border: 3px double rgb(68, 68, 68);
+}
+
+#contactLogo {
+	width: 40px;
+	height: 40px;
+	border-radius: 60px;
+}
+
+#contactUsAlign {
+
+	padding-top: 50%;
+	float: left;
+	margin: 0 auto;
+	padding-left: 10%;
+}
+
+#contactUsTable {
+	background-color: rgb(247, 209, 209);
+}
+
+#contactUs td {
+
+	font-size: 20px;
+}
+
+#response {
+	color: green;
+	font-size: 22px;
+}
+
+#Message {
+    position: relative;
+}
+
+#messageAlign {
+    left: 40%;
+    position: absolute;
+    font-size: 15px;
+    color: black;
+    font-family: cursive;
+}
+
+@media only screen and (max-width:790px) {
+	/* For mobile phones: */
+
+
+}

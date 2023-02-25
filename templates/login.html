@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href='..\static\css\login.css' rel='stylesheet'>
+</head>
+
+<body>
+    <div id="im"></div>
+    <po></po>
+
+    <div id="pos"></div>
+    <img src="../static/images/user.png" id="pic" )>
+
+    <form action="/logincheck" method="POST">
+        <input id="pos1" type="text" placeholder="Enter id" name="userid">
+        <input id="pos2" type="password" placeholder="Enter password" name="password">
+        <a href=""><b>Forgot Passowrd</b></a>
+        <div id="error">
+            {%if error%}
+            <p>
+                {{ error }}
+            </p>
+            {%endif%}
+        </div>
+        <div id="poss"><button type="submit">Login</button></div>
+
+    </form>
+    </iframe>
+</body>
+
+</html>
+
+
+</body>
+
+</html>

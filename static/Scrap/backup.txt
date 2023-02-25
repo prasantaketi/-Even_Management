@@ -1,0 +1,8 @@
+<tr>
+    <th>Booking Id</th>
+    <th>Event Name</th>
+    <th>Event Date</th>
+    <th>Event Location</th>
+    <th>Total Amount</th>
+    <th>Amount Paid</th>
+</tr>

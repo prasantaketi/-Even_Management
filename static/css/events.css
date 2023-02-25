@@ -1,0 +1,195 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow: scroll;
+}
+
+#navigationBar {
+  overflow: hidden;
+  height: 50px;
+  background-color: black;
+  margin: 0 auto;
+  opacity: 0.9;
+  filter: grayscale(30%);
+  padding-left: 7%;
+}
+
+.sticky {
+  border-radius: 70px;
+  width: 70%;
+  margin: 0 auto;
+  position: fixed;
+  left: 15%;
+}
+
+.sticky+.content {
+  padding-top: 60px;
+}
+
+#navigationBar a {
+  height: 50px;
+  opacity: 1;
+  overflow: hidden;
+  float: left;
+  display: block;
+  text-decoration: none;
+  font-size: 20px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #d6d6d6;
+  margin-top: 3px;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+nav:hover {
+  color: white;
+}
+
+a:hover {
+  border-bottom: 5px solid rgb(250, 68, 68);
+  border-radius: 5px;
+  color: white;
+  font-size: 29px;
+}
+
+#navigationBar:hover {
+
+  opacity: 3;
+  color: white;
+
+}
+
+#date {
+  border: 2px solid rgb(0, 0, 0);
+  height: 40px;
+  width: 250px;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 20px;
+  font-family: cursive;
+  padding-right: 5%;
+}
+
+#dateAlign {
+  text-align: center;
+  padding-top: 5%;
+  float: left;
+  margin: 0 auto;
+  width: 100%;
+}
+
+#address {
+  border: 2px solid rgb(0, 0, 0);
+  overflow: hidden;
+  height: 100px;
+  width: 250px;
+  border-radius: 7px;
+  text-align: center;
+  font-size: 20px;
+  font-family: cursive;
+  padding: 10px;
+}
+
+#address:hover {
+  border-radius: 4px;
+  border: 2px solid green;
+  width: 350px;
+  overflow-inline: scroll;
+}
+
+select {
+  width: 650px;
+  height: 50px;
+  display: flex;
+}
+
+img {
+  width: 150px;
+  height: 150px;
+  border-radius: 80px;
+}
+
+img:hover {
+
+  border-radius: 60px;
+}
+
+button {
+  font-size: 16px;
+  font-family: cursive;
+  padding: 2px;
+  border: none;
+  background: transparent;
+}
+
+#images {
+  padding-top: 20%;
+  margin: 0 auto;
+  display: block;
+  width: 100%;
+  text-align: center;
+
+}
+
+#eventStyle {
+
+  height: auto;
+  width: 90%;
+  position: relative;
+}
+
+#descHeading {
+  color: wheat;
+}
+
+.eventDescAlign {
+  color: white;
+  box-shadow: 2px 2px 7px 5px rgb(83, 82, 82);
+  text-align: center;
+
+  left: 30px;
+  position: absolute;
+  background-color: rgb(0, 0, 0);
+  border-radius: 10px;
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 16px;
+  font-family: cursive;
+}
+
+#sides {
+
+  width: 25%;
+  float: left;
+}
+
+#middle {
+  width: 50%;
+  float: left;
+}
+#messageCeter{
+  text-align: center;
+
+}
+#Message{
+  position: relative;
+}
+#messageAlign {
+  left: 40%;
+  position: absolute;
+  font-size: 15px;
+  color: red;
+  font-family: cursive;
+}

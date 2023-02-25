@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="refresh" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <link href='..\static\css\payment.css' rel='stylesheet'>
+    <script src="..\static\javascript\jquery.js"></script>
+    <script>
+		$(document).ready(function () {
+			$("#messageAlign").show("slow").delay(5000).hide("slow");
+		});
+    </script>
+</head>
+
+<body>
+
+    <nav id="navigationBar">
+        <div><a href="/home"><b>Home</b></a></div>
+        <div><a href="/events"><b>Events</b></a></div>
+        <div><a href="/logout"><b>Logout</b></a></div>
+    </nav>
+    <div id="qrAlign">
+        <div id="message">
+            <div id="messageAlign">
+                {% if session['message'] %}
+                {{session.pop('message',None)}}
+                {% endif %}
+            </div>
+        </div>
+        <br>
+        <div id="texts"> <b>Scan Me</b></div><br>
+        <img id="qrcode" src="..\static\images\sbi.png"><br><br>
+        <div id="texts"> <b> Or </b></div>
+
+    </div>
+
+    <div id="paymentAlign">
+        <form action="/doPayment" method="post">
+            <select name="bookedId" id="bookedId" required>
+                <option selected disabled hidden>Select BookingId</option>
+                {% for bookingId in bookings%}
+                <option value={{bookingId[0]}}>{{bookingId[0]}}</option>
+                {%endfor%}
+            </select><br><br>
+            <input id="amount" type="text" placeholder="Enter Amount" name="amount"><br><br>
+
+            <input id="pay" type="submit" value="Pay">
+        </form>
+    </div>
+
+</body>

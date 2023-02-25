@@ -1,0 +1,72 @@
+body{
+	overflow: scroll;
+}
+
+nav{
+	border-radius: 5px;
+	margin-top: 0px;
+	width: 100%;
+	height: 50px;
+	background-color:#040404;
+	left: 0px;
+	opacity: 0.9;
+	filter:grayscale(30%);
+	
+}
+nav a{
+	height: 50px;
+	opacity: 1;
+	overflow: hidden;
+	float: right;
+	display: block;
+	text-decoration: none;
+	font-size: 20px;
+    padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	color:#a3a3a3;
+	margin-top: 3px;
+	margin-right: 15px;
+	margin-left: 15px;
+
+}
+
+
+nav a:hover{
+
+	color:black;
+	background-color: white;
+	font-size:23px;
+}
+nav:hover{
+	opacity:1;
+}
+
+@media only screen and (max-width:790px) {
+  /* For mobile phones: */
+nav{
+
+	height: 300px;
+	float: left;
+	 width: 100%;
+
+}
+  nav a{
+
+  	left: 10px;
+  	height:50px;
+
+  	border-radius: 5px;
+    min-width: 45%;
+    float: left;
+  }
+  .sec,.sid{
+  	width: 0%;
+  }
+  .mid {
+  	margin-top: 20px;
+    width:100%;
+
+  }
+}
+

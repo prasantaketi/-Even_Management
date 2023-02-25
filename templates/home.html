@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="refresh" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<link href='..\static\css\home.css' rel='stylesheet'>
+	<script src="..\static\javascript\jquery.js"></script>
+	<script>
+		$(document).ready(function () {
+			$("#messageAlign").show("slow").delay(5000).hide("slow");
+		});
+		function postComment() {
+			var comment = document.getElementById('comment').value;
+			if (comment != "") {
+				$.ajax({
+					type: "post",
+					url: '/feedback',
+					data: { 'comment': comment },
+					cache: false,
+					success: function (data) {
+						$("#response").html(data.response);
+						document.getElementById("feed").reset();
+					}
+				});
+			}
+			else {
+				document.getElementById('response').innerHTML = "Comment box is empty";
+			}
+		}
+	</script>
+
+</head>
+
+<body>
+	<nav id="navigationBar">
+		<div><a href="#home"><b>Home</b></a></div>
+		<div><a href="/events"><b>Events</b></a></div>
+		<div><a href="/payment"><b>Make Payment</b></a></div>
+		<div><a href="#feedbackAlign"><b>Feedback</b></a></div>
+		<div><a href="#contactUsAlign"><b>Contact Us</b></a></div>
+		<div><a href="/logout"><b>Logout</b></a></div>
+	</nav>
+	<div id="img"></div>
+	<div id="main">
+		<div id="sides">f</div>
+		<div id="middle">
+			<div id="message">
+                <div id="messageAlign">
+                    {% if session['message'] %}
+                    {{session.pop('message',None)}}
+                    {% endif %}
+                </div>
+            </div>
+			<section id="home">
+				<table id="bookingDisplay" cellspacing="0">
+					<tr>
+						<th id="startTh">Booking Id</th>
+						<th>Event Name</th>
+						<th>Event Date</th>
+
+						<th>Total Amount</th>
+						<th>Amount Paid</th>
+						<th id="endTh">Balance</th>
+					</tr>
+					{% for bookings in bookingData%}
+					
+						<tr id="bookingRow">
+							<td id="start"> {{bookings[0]}}</td>
+							<td> {{bookings[1]}}</td>
+							<td> {{bookings[2]}}</td>
+
+							<td> {{bookings[4]}}</td>
+							<td> {{bookings[5]}}</td>
+							<td id="end"> {{bookings[4]-bookings[5]}}</td>
+						</tr>
+						
+					
+					{% endfor %}
+				</table>
+
+
+			</section>
+			<section id="feedback">
+				<div id="feedbackAlign">
+					<div id="feedHeader">Please leave your valuable feedback here.</div>
+					<form method="POST" action="javascript:" onsubmit="postComment()" id="feed">
+						<textarea name="comment" id="comment"></textarea>
+						<button type="submit" id="post">Post</button>
+					</form>
+					<div id="response"></div>
+				</div>
+			</section>
+			<section id="contactUsSection">
+				<div id="contactUsAlign">
+					<div id="feedHeader">Pick you favourite way to contact us.</div>
+					<table cellspacing="20" id="contactUsTable">
+						<tr>
+							<td><img src="..\static\images\contactUs\gmail.jpg" id="contactLogo"></td>
+							<td> momentous@gmail.com </td>
+							<td><img src="..\static\images\contactUs\insta.jpg" id="contactLogo"></td>
+							<td>www.instagram.com/momentous/</td>
+						</tr>
+						<tr>
+							<td><img src="..\static\images\contactUs\facebook.jpg" id="contactLogo"></td>
+							<td> www.facebook.com/momentous </td>
+							<td><img src="..\static\images\contactUs\whatsapp.jpg" id="contactLogo"></td>
+							<td>+91 99887743210</td>
+						</tr>
+					</table>
+				</div>
+			</section>
+		</div>
+		<div id="sides">f</div>
+	</div>
+	<script type="text/javascript" src='..\static\javascript\navigationBar.js'></script>
+</body>
+
+</html>

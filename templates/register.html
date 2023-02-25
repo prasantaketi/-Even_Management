@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href='..\static\css\register.css' rel='stylesheet'>
+   <script src="..\static\javascript\jquery.js"></script>
+   <script>
+      function master() {
+         var userId = document.getElementById('userid').value;
+         if (userId != "") {
+            $(document).ready(function () {
+               $.ajax({
+                  type: "POST",
+                  url: 'usernameCheck',
+                  data: { 'userId': userId },
+                  cache: false,
+                  success: function (data) {
+                     if(data.message){
+                        $("#message").html("User name available");
+                     }
+                     else {
+                        $("#message").html("User name not available");
+                     }
+                  }
+               });
+            });
+         }
+         else {
+            document.getElementById('message').innerHTML = "userid is empty";
+         }
+      }
+   </script>
+   <title>Register</title>
+</head>
+<body>
+   <div id="imageback"></div>
+   <div id="backblack"></div>
+   <div id="pos">
+      <form action="/registerUser" method="post">
+         <div>
+            <input type="text" required="" id="fullname" name="fullname">
+            <lable>Fullname</lable></br></br>
+         </div>
+         <div>
+            <input type="text" required="" id="mobile" name="phone">
+            <lable>Phone No</lable> </br></br>
+         </div>
+         <div>
+            <input type="text" required="" id="userid" onblur="master()" name="userId">
+            <lable>Userid</lable></br></br>
+         </div>
+         <div>
+            <input type="text" required="" id="userid" onblur="" name="email">
+            <lable>Email</lable></br></br>
+         </div>
+         <div>
+            <input type="password" required="" id="password" name="password">
+            <lable>Password</lable></br></br>
+         </div>
+         <div>
+            <input type="password" required="" id="retype" name="retype">
+            <lable>Retype Password</lable></br></br>
+         </div>
+         <div>
+            <input type="text" required="" id="address" name="address">
+            <lable>Address</lable></br></br>
+         </div>
+         <div id="message"></div>
+         <div id="buttonPos">
+            <button type="submit" id="button">Register</button>
+         </div>
+      </form>
+   </div>
+</body>
+</html>

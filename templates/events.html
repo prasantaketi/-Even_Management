@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="refresh" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <link href='..\static\css\events.css' rel='stylesheet'>
+    <script src="..\static\javascript\jquery.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#messageAlign").show("slow").delay(5000).hide("slow");
+            let buttons = document.getElementsByTagName("button");
+            for (let i = 0, len = buttons.length; i < len; i++) {
+                buttons[i].disabled = true;
+            }
+
+        });
+        function buttonworking() {
+            var dateValue = document.getElementById("date").value;
+            var address = document.getElementById("address").value;
+            if (dateValue != "" && address != "" && address != null) {
+                let buttons = document.getElementsByTagName("button");
+                for (let i = 0, len = buttons.length; i < len; i++) {
+                    buttons[i].disabled = false;
+                }
+            }
+        }
+        function showDesc(button) {
+            document.getElementById(button.value).style.visibility = 'visible';
+            document.getElementById(button.value).style.top = (button.offsetTop - 70) + "px";
+
+        }
+        function hideDesc(button) {
+
+            document.getElementById(button.value).style.visibility = 'hidden';
+        }
+    </script>
+</head>
+
+<body>
+    <nav id="navigationBar">
+        <div><a href="/home"><b>Home</b></a></div>
+        <div><a href="/events"><b>Events</b></a></div>
+        <div><a href="/payment"><b>Make Payment</b></a></div>
+        <div><a href="/logout"><b>Logout</b></a></div>
+    </nav>
+    <form action="/bookEvent" method="post">
+        <div id="sides">
+            <br>
+            {% for events in eventsData %}
+            <div id="eventDesc">
+
+
+                <div id="eventStyle">
+                    <div class="eventDescAlign" id={{events[0]}} style="visibility: hidden">
+                        <div id="descHeading">Things We Manage In {{events[1]}}'s</div><br>
+                        {{events[2]}}
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+
+        </div>
+        <div id="middle">
+
+            <div id="message">
+                <div id="messageAlign">
+                    {% if session['message'] %}
+                    {{session.pop('message',None)}}
+                    {% endif %}
+                </div>
+            </div>
+
+            <div id="dateAlign">
+                <input type="date" name="bookingDate" id="date" data-date-format="DD-YYYY-MM"
+                    onmouseout="buttonworking()"><br><br>
+                <div id="textareaAlign"> <textarea name="eventLocation" type="textarea" id="address"
+                        placeholder="Enter Address" onmouseout="buttonworking()"></textarea></div>
+
+            </div>
+
+            <div id="images">
+                {% for events in eventsData %}
+                <button type="submit" name="eventId" value={{events[0]}} id="eventsButton" onmouseover="showDesc(this)"
+                    onmouseout="hideDesc(this)"><img src="..\static\images\events\{{events[1]}}.jpg" /><br>
+                    {{events[1]}}</button>
+                {% endfor %}
+            </div>
+        </div>
+        <div id="sides"></div>
+    </form>
+
+</body>
